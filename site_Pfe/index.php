@@ -88,33 +88,26 @@
   <div class="row justify-content-center align-items-center p-0 " id="vihcules">
     <div class="col-11 row p-0 m-0 vihcules_body">
       <div class="col-12 order-lg-1 order-2 mt-lg-5 text-center ">
-        <img src="./image/Titel2.png" class="titel2 mt-lg-12 mb-lg-3" alt="">
+        <img src="./image/Titel_2.png" class="titel2 mt-lg-12 mb-lg-3" alt="">
 
         <!-- Slider -->
         <div class="row justify-content-center">
           <div class="swiper-container mySwiper col-11">
             <div class="swiper-wrapper">
+            <?php
+            include "connect.php";
+            $Get_Cars = $pdo->prepare("SELECT * FROM cars WHERE Registration_Number NOT IN (SELECT Rigestration_Number FROM reservation WHERE CURRENT_TIMESTAMP BETWEEN Date_Start AND Date_End)");
+            $Get_Cars->execute();
 
+            while ($Car = $Get_Cars->fetch()) {
+
+            ?>
 
               <div class="swiper-slide">
-                <img src="./image/pexels-mike-1007410.jpg" />
+                <img src="<?= $Car["CarImage"] ?>" />
               </div>
-              <div class="swiper-slide">
-                <img src="./image/pexels-mike-1035108.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./image/pexels-mike-116675.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./image/pexels-mike-4639907.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./image/pexels-mike-7808337.jpg" />
-              </div>
-              <div class="swiper-slide">
-                <img src="./image/pexels-victoria-ouarets-5288708.jpg" />
-              </div>
-            </div>
+            <?php }?>
+            
             <div class="swiper-pagination"></div>
           </div>
         </div>

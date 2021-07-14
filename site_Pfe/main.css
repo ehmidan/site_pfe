@@ -3,7 +3,7 @@
   
   }
 ::-webkit-scrollbar{
-    width: 0px;
+    width: 12px;
     
   }
   ::-webkit-scrollbar-thumb{
@@ -20,6 +20,7 @@
 .nav-link{
     color: black;
     font-size: 18px;
+    
 }
 .nav-link::after{
     content: '';
@@ -45,7 +46,7 @@
 }
 #home{
     margin: 0%;
- margin-top:30px ;
+ margin-top:0px ;
 }
 .home_body{
     border-radius: 20px;
@@ -80,22 +81,13 @@
         left:30px;
 
     }
-
+   
 }
-.scroll_button{
-    width: 40px;
-    height: 37px;
-    border-radius: 50%;
-    margin-top: 100px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(235, 25, 25);
-}
-
 .scrollDown_block{
     margin-top: 200px;
 }
 .scrollDown_block2{
-    margin-top: 35px;
+    margin-top: 135px;
 }
 .scrollDown{
 
@@ -153,6 +145,8 @@
 #vihcules{
     margin: 0%;
  margin-top:100px ;
+ margin-bottom: 50px;
+
 }
 .vihcules_body{
     margin-top: 300px;
@@ -180,6 +174,7 @@
     width: 350px;
     height: 240px;
     border-radius: 20px;
+    background-color: white;
   }
   
   .swiper-slide img {
