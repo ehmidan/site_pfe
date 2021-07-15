@@ -11,7 +11,7 @@
   <title>Document</title>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="10">
+<body data-spy="scroll" data-target=".navbar" data-offset="200">
   <div class="backnav ">
     <nav class="navbar navbar-expand-lg navbar-light  row m-0 fixed-top">
       <a class="navbar-brand col-6" href="#home"><img src="./image/logo car.png" class="logo" alt=""></a>
@@ -27,7 +27,7 @@
             <a class="nav-link font-weight-bold" href="#vihcules">VEHICLES</a>
           </li>
           <li class="nav-item mr-lg-5">
-            <a class="nav-link font-weight-bold" href="#">ABOUT US</a>
+            <a class="nav-link font-weight-bold" href="#bienifites">OUR BENEFITS</a>
           </li>
           <li class="nav-item mr-lg-5">
             <a class="nav-link font-weight-bold" href="#">CONTACT</a>
@@ -94,37 +94,110 @@
         <div class="row justify-content-center">
           <div class="swiper-container mySwiper col-11">
             <div class="swiper-wrapper">
-            <?php
-            include "connect.php";
-            $Get_Cars = $pdo->prepare("SELECT * FROM cars WHERE Registration_Number NOT IN (SELECT Rigestration_Number FROM reservation WHERE CURRENT_TIMESTAMP BETWEEN Date_Start AND Date_End)");
-            $Get_Cars->execute();
+              <?php
+              include "connect.php";
+              $Get_Cars = $pdo->prepare("SELECT * FROM cars WHERE Registration_Number NOT IN (SELECT Rigestration_Number FROM reservation WHERE CURRENT_TIMESTAMP BETWEEN Date_Start AND Date_End)");
+              $Get_Cars->execute();
 
-            while ($Car = $Get_Cars->fetch()) {
+              while ($Car = $Get_Cars->fetch()) {
 
-            ?>
+              ?>
 
-              <div class="swiper-slide">
-                <img src="<?= $Car["CarImage"] ?>" />
-              </div>
-            <?php }?>
-            
-            <div class="swiper-pagination"></div>
+                <div class="swiper-slide">
+                  <img src="<?= $Car["CarImage"] ?>" />
+                </div>
+              <?php } ?>
+
+              <div class="swiper-pagination"></div>
+            </div>
           </div>
-        </div>
 
 
-        <div class="col-12 row justify-content-center order-3 scrollDown_block2">
-          <div class="scrollDown">
-            <a href="">
-              <span></span>
-              <span></span>
-              <span></span>
-            </a>
+          <div class="col-12 row justify-content-center order-3 scrollDown_block2">
+            <div class="scrollDown">
+              <a href="#bienifites">
+                <span></span>
+                <span></span>
+                <span></span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Our bienefits -->
+
+  <div class="row justify-content-center align-items-center p-0" id="bienifites">
+    <div class="col-11 row p-0 m-0 binefits_body ">
+      <div class="col-lg-8 col-12 order-lg-1 order-1 mt-lg-5 text-center ">
+        <div class="col-12">
+          <img src="./image/titel3.png" class="titel mt-lg-2 mb-lg-3" alt="">
+        </div>
+        <div>
+          <img src="./image/wheels.png" class="wheels col-12" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-12 order-lg-2 order-2 align-self-center">
+        <div class="bbb_advs">
+          <div class="row justufy-content-end ">
+            <div class="col-lg-9 bbb_adv_col">
+              <!-- bbb_adv Item -->
+              <div class="bbb_adv d-flex flex-row align-items-center mt-5">
+                <div class="bbb_adv_content">
+
+                  <div class="bbb_adv_text">Free fuel for new cliets</div>
+                </div>
+                <div class="ml-auto">
+                  <div class="bbb_adv_image"> <img src="./image/Fual.png" class="col-12" alt=""></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-9 bbb_adv_col">
+              <!-- bbb_adv Item -->
+              <div class="bbb_adv d-flex flex-row align-items-center" id="hover_binifiets">
+                <div class="bbb_adv_content">
+                  <div class="bbb_adv_text text-light">Quality tires for any season</div>
+                </div>
+                <div class="ml-auto">
+                  <div class="bbb_adv_image"><img src="./image/Quality.png" class="col-12" alt=""></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 bbb_adv_col">
+            <!-- bbb_adv Item -->
+            <div class="bbb_adv d-flex flex-row align-items-center">
+              <div class="bbb_adv_content">
+
+                <div class="bbb_adv_text">Customer satisfaction rates</div>
+              </div>
+              <div class="ml-auto">
+                <div class="bbb_adv_image"><img src="./image/customer.png" class="col-12" alt=""></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-12 row justify-content-center order-3 scrollDown_block3">
+      <div class="scrollDown">
+        <a href="#vihcules">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
 
 
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
